@@ -31,6 +31,9 @@ export const projectsStore = create<ProjectsStoreInterface>((set, get) => ({
         set(state => ({...state, projects: state.projects.filter(project => project.id !== id)}))
     },
     filter: async (filters) => {
-        set(state => ({...state, projects: state.projects.filter(project =>)}))
+        const { projects } = get();
+        return projects.filter(project => {
+            return Object.entries(filters).every(([key, value]) => {return project[key as keyof Project] === value})
+        })
     } 
 }))
