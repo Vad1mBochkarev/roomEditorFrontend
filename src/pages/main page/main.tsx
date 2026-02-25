@@ -1,5 +1,4 @@
 import './main.css'
-import { ProjectCards } from './projectCards';
 import { projectsStore } from "../../stores/projectsStore";
 import { useMemo, useState } from 'react';
 import { useShallow } from 'zustand/shallow';
