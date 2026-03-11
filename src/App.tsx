@@ -7,6 +7,7 @@ import {Camera_and_scene} from './pages/editor page/edit_psge'
 // import { EffectComposer, Outline } from '@react-three/postprocessing'
 import{Style_html} from './pages/editor page/page_layout_3d_obj'
 import Main from './pages/main page/main'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 export const Model_render = memo(() => {
   return (
@@ -33,10 +34,13 @@ export const Model_render = memo(() => {
 function App() {
   console.log('it renders')
   return (
-    <>
-    <Main/>
-      <Model_render/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        
+        <Route path="/editor" element={<Model_render />} />
+      </Routes>
+    </Router>
   )
 }
   export default App
